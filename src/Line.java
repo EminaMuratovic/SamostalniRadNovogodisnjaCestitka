@@ -36,8 +36,12 @@ public class Line extends Geometry {
 
 	}
 
+	/**
+	 * moves the lines up and down
+	 */
 	public void move(int frame) {
-		return;
+		positionX2 = (int) (positionX2 + Math.sin(frame / 5) * 6);
+		positionY2 = (int) (positionY2 + Math.sin(frame / 5) * 6);
 	}
 
 }

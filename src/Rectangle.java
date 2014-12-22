@@ -26,9 +26,6 @@ public class Rectangle extends Geometry {
 	public void draw(Graphics g, int frame) {
 		g.setColor(super.getColor());
 		g.drawRect(super.getPositionX(), super.getPositionY(), this.width, this.height);
-	}
-	
-	public void fill(Graphics g, int frame) {
 		g.fillRect(super.getPositionX(), super.getPositionY(), this.width, this.height);
 	}
 	

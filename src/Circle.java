@@ -23,16 +23,8 @@ public class Circle extends Geometry {
 	public void draw(Graphics g, int frame) {
 		g.setColor(super.getColor());
 		g.drawOval(super.getPositionX(),  super.getPositionY(), this.radius, this.radius);
-		
-	}
-	
-	/**
-	 * fills the circle 
-	 * @param g Graphics
-	 * @param frame int
-	 */
-	public void fill(Graphics g, int frame) {
 		g.fillOval(super.getPositionX(),  super.getPositionY(), this.radius, this.radius);
+		
 	}
 	
 	public void move(int frame) {
