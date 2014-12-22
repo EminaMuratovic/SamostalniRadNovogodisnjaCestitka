@@ -20,12 +20,12 @@ import java.awt.Graphics.*;
 
 public class SimpleDrawing extends JPanel implements ActionListener {
 	int frame = 0;
-	Graphics g;
+	static Geometry[] array;
 
 	public static void main(String[] args) {
 		JFrame window = new JFrame("Happy Hollydays"); 
 		SimpleDrawing drawArea = new SimpleDrawing();
-		drawArea.setBackground(Color.GRAY.darker());
+		drawArea.setBackground(Color.CYAN.darker());
 	     window.setContentPane(drawArea);
 	     
 	     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -42,16 +42,19 @@ public class SimpleDrawing extends JPanel implements ActionListener {
 	     
 	     window.setResizable(false);
 	     
-	     Timer frameTimer = new Timer(120,drawArea);
+	     array = new Geometry[3];
+	     array[0] =  new Snow(Color.WHITE, 800);
+	     array[1] =  new Snow(Color.RED, 800);
+	     array[2] =  new Snow(Color.YELLOW, 800);
+	     
+	     
+	     Timer frameTimer = new Timer(60,drawArea);
 	     window.setVisible(true);
 	     frameTimer.start();
 	     
 	  
    }
 	   
-	     
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		repaint();
@@ -64,23 +67,27 @@ public class SimpleDrawing extends JPanel implements ActionListener {
 	    }
 	 
 	  public void drawFrame(Graphics g, int frameNumber) {
+		  Graphics2D g2d = (Graphics2D)g;
+		  g.setColor(Color.RED);
+		  Font bF = new Font("times", Font.BOLD, 57);
+		  g2d.setFont(bF);
+		  g2d.drawString("Merry Christmas and \n", 220, 200);
+		  g2d.drawString("a Happy New Year\n", 270, 300);
+		  g2d.drawString("from BIT Camp!\n", 290, 400);
+		  
+		  
 		 
 		   Snowman s = new Snowman(200, 200, Color.WHITE);
 	       s.draw(g, frameNumber);
-	       Snow snow = new Snow(Color.WHITE, 800);
-	       Snow snow2 = new Snow(Color.RED, 800);
-	       Snow snow3 = new Snow(Color.YELLOW, 800);
-	       snow2.draw(g, frameNumber);
-	       snow.draw(g, frameNumber);
-	       snow3.draw(g, frameNumber);
+	  
+	     for(Geometry geo : array){
+	    	 geo.draw(g, frameNumber);
+	     }
 	       
 	       Font a = new Font("SANS", 5, 20);
 	       g.setFont(a);
-	       g.drawString("MI SMO NAJBOLJI!", 180, 180);
 
 	       
 	    }
-	  
-	 
 
 }

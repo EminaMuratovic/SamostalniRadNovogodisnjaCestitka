@@ -41,16 +41,28 @@ public class Snow extends Geometry{
 	}
 	
 	public void move(int frame) {
-		for(int i = 0; i < flakes.length; i++) {
-			int moveY = (int) (Math.random() * frame);
-			flakes[i].setPositionY(moveY);
+		int fallen = 0;
+		for(int i = 0; i < count; i++) {
+			if(flakes[i].getPositionY() < windowWidth - 300) {
+				int moveY = (int) (Math.random() * frame);
+				flakes[i].setPositionY(moveY);
+			}
+			else{
+				fallen++;
+			}
+		}
+		if(fallen >= flakes.length / 2) {
+			int flakesToAdd = 200;
+			for(int i = 0; i < flakesToAdd; i++)
+				addFlake(generateFlake());
 		}
 			
 	}
 	
 	public void draw(Graphics g, int frame) {
 	move(frame);
-	for(int i =0; i < flakes.length; i++)
+	System.out.println(count);
+	for(int i =0; i < count; i++)
 		flakes[i].draw(g, 0);
 	}
 }

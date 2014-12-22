@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.geom.Rectangle2D;
 
 public class Snowman extends Geometry {
 
@@ -13,17 +14,22 @@ public class Snowman extends Geometry {
 		final int MID = super.getPositionX() / 2; // middle of the snowman
 		final int TOP = positionY - height / 2; // top of the snowman
 
-		int bottomRadius = (int) (height * 0.5);
+		int bottomRadius = (int) (height * 1.8);
 		int middleRadius = (int) (bottomRadius * 0.7);
 		int headRadius = (int) (bottomRadius * 0.4);
 
 		int i = 0;
-		parts[i] = new Line(MID, TOP + 50, Color.BLACK, MID - 50, TOP + 30);
+		//left arm
+		
+		parts[i] = new Rectangle(MID-130, TOP + 150, Color.BLACK, 50, 5);
 		
 		// draw right arm
 		
 		i++;
-		parts[i] = new Line(MID, TOP + 50,  Color.BLACK, MID + 55, TOP + 30);
+		
+		parts[i] = new Rectangle(MID+80, TOP + 150, Color.BLACK, 50, 5);
+		
+		
 		i++;
 		parts[i] = new Oval(MID - headRadius / 2, TOP, Color.BLACK, headRadius, headRadius);
 		
@@ -35,7 +41,7 @@ public class Snowman extends Geometry {
 		// left eye
 				
 				i++;
-				parts[i] = new Circle(MID - 10, TOP + 10, Color.WHITE, 5);
+				parts[i] = new Circle(MID - 23, TOP + 25, Color.WHITE, 10);
 		
 		// draw middle (upper torso)
 		
@@ -48,20 +54,20 @@ public class Snowman extends Geometry {
 		// draw right eye
 		
 		i++;
-		parts[i] = new Circle(MID + 5, TOP + 10, Color.WHITE, 5);
+		parts[i] = new Circle(MID + 20, TOP + 25, Color.WHITE, 10);
 
 
 		i++;
-		parts[i] = new Arch (MID - 10, TOP + 10, Color.RED, 20, 10, 190, 160);
+		parts[i] = new Arch (MID - 15, TOP + 60, Color.RED, 40, 10, 145, 160);
 
 		i++;
-		parts[i] = new Line(MID - 20, TOP + 5, Color.MAGENTA, MID + 20, TOP + 5);
+		parts[i] = new Line(MID - 20, TOP + 5, Color.RED, MID + 20, TOP + 5);
 		
 		// draw hat
 		/*
 		 * // draw brim of hat ; // draw top of hat */
 		i++;
-		parts[i] = new Rectangle (MID - 15, TOP - 20, Color.MAGENTA, 30, 25);
+		parts[i] = new Rectangle (MID - 15, TOP - 20, Color.RED, 30, 25);
 
 
 	}
