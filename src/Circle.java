@@ -27,9 +27,6 @@ public class Circle extends Geometry {
 		
 	}
 	
-	public void move(int frame) {
-		return;
-	}
 	
 
 }

@@ -29,7 +29,5 @@ public class Rectangle extends Geometry {
 		g.fillRect(super.getPositionX(), super.getPositionY(), this.width, this.height);
 	}
 	
-	public void move(int frame) {
-		return;
-	}
+	
 }
