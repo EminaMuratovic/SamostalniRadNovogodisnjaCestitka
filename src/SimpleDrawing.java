@@ -10,7 +10,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.Timer;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 
 public class SimpleDrawing extends JPanel implements ActionListener {
@@ -41,13 +45,11 @@ public class SimpleDrawing extends JPanel implements ActionListener {
 	     window.setVisible(true);
 	     frameTimer.start();
 	     
-	     
-	     
+	  
+   }
 	   
 	     
-	     
-	     
-	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -66,7 +68,17 @@ public class SimpleDrawing extends JPanel implements ActionListener {
 	       g.fillOval(50, 50, 50, 50);
 	       Arch arch = new Arch(100, 100, Color.RED, 50, 50, 45, 60);
 	       arch.draw(g, frame);
-	        
+	       Circle circle = new Circle(400, 400, Color.WHITE, 60);
+	       circle.draw(g, frameNumber);
+	       circle.fill(g, frameNumber);
+	       Rectangle rectangle = new Rectangle(100, 200, Color.BLUE, 200, 200);
+	       rectangle.draw(g, frameNumber);
+	       rectangle.fill(g, frameNumber);
+	       Line line = new Line(200, 200, Color.YELLOW, 300, 300);
+	       line.draw(g, frameNumber);
+	       g.drawString("MI SMO NAJBOLJI!", 180, 180);
 	    }
+	  
+	 
 
 }
